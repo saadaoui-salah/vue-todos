@@ -12,7 +12,7 @@
                 class="form-control"
                 type="email"
                 required
-                />
+              />
           </div>
           <button type="submit" class="btn btn-primary">Create User</button>
       </form>
@@ -23,11 +23,16 @@
 import { createUser } from '@/firebase'
 import { reactive } from 'vue'
 export default {
-    setup(){
-        const form = reactive({name: '', email: ''})
-        const onSubmit = async ()=>{}
-        return {from, onSubmit}
+  setup(){
+    console.log("hehe")
+    const form = reactive({name: '', email: ''})
+    const onSubmit = async () => {
+      await createUser({...form})
+      form.name = ""
+      form.email = ""
     }
+    return {form, onSubmit}
+  }
 }
 </script>
 
