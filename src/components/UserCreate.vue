@@ -14,7 +14,7 @@
                 required
               />
           </div>
-          <button type="submit" class="btn btn-primary">Create User</button>
+          <button type="submit" class="btn btn-primary mt-2">Create User</button>
       </form>
   </div>
 </template>
@@ -23,15 +23,14 @@
 import { createUser } from '@/firebase'
 import { reactive } from 'vue'
 export default {
-  setup(){
-    console.log("hehe")
-    const form = reactive({name: '', email: ''})
-    const onSubmit = async () => {
-      await createUser({...form})
-      form.name = ""
-      form.email = ""
+  setup () {
+    const form = reactive({ name: '', email: '' })
+    const onSubmit = () => {
+      createUser({ ...form })
+      form.name = ''
+      form.email = ''
     }
-    return {form, onSubmit}
+    return { form, onSubmit }
   }
 }
 </script>
