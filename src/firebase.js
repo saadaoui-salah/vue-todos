@@ -16,7 +16,6 @@ const db = firebaseApp.firestore()
 const userCollection = db.collection('user')
 
 export const createUser = (user) => {
-  console.log(user)
   return userCollection.add(user)
 }
 
