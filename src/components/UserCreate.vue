@@ -1,6 +1,6 @@
 <template>
   <div class="card card-body mt-4">
-      <form @onSubmit="onSubmit">
+      <form @onSubmit.prevent="onSubmit">
           <div class="form-group">
               <label>Name</label>
               <input v-model="form.name" class="form-control" required/>
@@ -26,6 +26,7 @@ export default {
   setup () {
     const form = reactive({ name: '', email: '' })
     const onSubmit = () => {
+      window.console.log('test')
       createUser({ ...form })
       form.name = ''
       form.email = ''
