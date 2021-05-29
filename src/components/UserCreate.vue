@@ -1,6 +1,6 @@
 <template>
   <div class="card card-body mt-4">
-      <form @onSubmit.prevent="onSubmit">
+      <form @onSubmit="onSubmit">
           <div class="form-group">
               <label>Name</label>
               <input v-model="form.name" class="form-control" required/>
